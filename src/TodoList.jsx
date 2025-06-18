@@ -1,35 +1,46 @@
 import { useState } from "react";
+import "./todoList.css"
+export default function TotoList(){
 
-export default function TodoList(){
-    let [todos , setTodos] = useState(["semple Todo"]);
-    let [newTodo , setNewtodos] = useState("");
+    let [todos , setTodos] = useState(["sample todo"]);
+    let [newTodo , setNewTodo] = useState("");
 
     let addTodo = () => {
-        setTodos( (prev) => {
-            return [...prev, newTodo];
-        })
+      setTodos(
+        [...todos , newTodo])
+        setNewTodo("");
     }
-    let updateTodo = (event) => {
-        setNewtodos(event.target.value)
-    }   
 
+    let updateTodo = (event) => {
+        setNewTodo(event.target.value);
+    }
     return(
         <>
-        <h1>TodoList</h1>
-        <br /><br /> 
-        <input type="text" value={newTodo} onChange={updateTodo} />
-        <br /><br />
-        <button style={{backgroundColor: "blue"}} onClick={addTodo}>add Todo</button>
-        <hr />
-        <br /><br />
-        <ul>
-            {
-                todos.map( (todo) => {
-                 return   <li>{todo}</li>
-                })
-            }
-        </ul>
-
+           <div className="todo-container">
+            <h1 className="todo-heading" >TodoList</h1>
+            <br /><br />
+            <div className="input-container">
+        <input
+          type="text"
+          value={newTodo}
+          onChange={updateTodo}
+          placeholder="Enter a new task..."
+          className="todo-input"
+        />
+        <button className="add-button" onClick={addTodo}>
+          ➕ Add
+        </button>
+      </div>
+            <hr />
+            <br />
+            <ul className="todo-list">
+                {
+                    todos.map( (todo) => {
+                        return <li className="todo-item">{todo}</li>
+                    })
+                }
+            </ul>
+            </div>
         </>
     );
 }
