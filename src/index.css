@@ -66,3 +66,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.delete_btn{
+  padding: 6px 20px;
+  background: linear-gradient(to bottom, #ff6b6b, #e63946);
+}
+
+
+.edit_btn{
+  padding: 6px 20px;
+  background: linear-gradient(to bottom, #ff6b6b, #e63946);
+}
+.isDone_btn{
+  padding: 6px 20px;
+  background: linear-gradient(to bottom, #ff6b6b, #e63946);
+}
